@@ -1,6 +1,6 @@
 package com.mycompany;
 
-class MyWebsiteAppContainer {
+class MyServer {
 
   static void main() {
   
