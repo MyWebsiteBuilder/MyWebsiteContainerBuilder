@@ -1,6 +1,6 @@
 package com.mycompany;
 
-class MyServer {
+class Server {
 
   static void main() {
   
