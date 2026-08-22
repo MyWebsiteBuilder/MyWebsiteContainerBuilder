@@ -8,7 +8,15 @@ if [[ -d src/ ]]; then
 
   mkdir -p dst/lib/
 
-  find src/ -type f -name "*.java" -exec javac -cp "dst/lib/*" -d dst/lib/ '{}' +
+  if [[ "${MODE:-development}" == production ]]; then
+
+    find src/ -type f -name "*.java" -exec javac -cp "dst/lib/*" -d dst/lib/ '{}' +
+
+  else
+
+    find src/ -type f -name "*.java" -exec javac -cp "dst/lib/*" -d dst/lib/ -g '{}' +
+  
+  fi
 
   jar cf dst/lib/server.jar -C dst/lib/ com/
 
